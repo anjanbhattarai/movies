@@ -1,0 +1,102 @@
+
+*{
+  margin: 0 auto;
+  padding: 0 auto;
+}
+
+.App {
+  text-align: center;
+}
+
+header {
+  background-color:#58b4cb;
+  color: white;
+  padding: 20px;
+  margin-top: 10px;
+  font-size: larger;
+  max-width: 96%;
+  border-radius: 10px;
+
+}
+
+.navbar{
+display: flex;
+text-align: center;
+justify-content: center;
+margin: 10px;
+}
+
+.nav-link{
+  color: white;
+  font-weight: bold;
+}
+
+.box{
+  margin-top: 20px;
+}
+
+.form{
+  display: block;
+margin-top: 20px;
+}
+
+.button{
+display: flex;
+justify-content: center;
+}
+
+.flexing{
+  display: inline-block;
+  margin:10px;
+}
+
+.details{
+  margin-top: 20px;
+  
+}
+
+.logoutButton{
+  display:flex;
+  justify-content: right;
+}
+
+.welcomeTag{
+  display:flex;
+  justify-content: right;
+}
+
+
+.login{
+  color: white;
+  font-weight: bold;
+}
+.loginBar{
+  display: flex;
+  justify-content: right;
+  color: white;
+  font-weight: bold;
+}
+
+.newMovie{
+  color:#1976d2;
+}
+
+.errorMessage{
+  color: red;
+}
+
+/* .outerBox{
+  border: 1px solid #58b4cb;
+  border-radius: 10px;
+  max-width: 98%;
+  margin-top: 10px;
+} */
+
+.register{
+  color:#1976d2;
+}
+.logout{
+  display: flex;
+  justify-content: right;
+  text-align: center;
+}
