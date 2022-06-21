@@ -22,9 +22,8 @@ const handleChange= (e)=>{
 
 const handleSubmit= (e)=>{
     e.preventDefault()
-    axios.post('http://localhost:8000/login',user)
+    axios.post('http://localhost:8000/login',user, {withCredentials: true})
     .then(res =>{
-        console.log("RES",res.data.user)
         setIsLoggedIn(true)
         setUserMeta(res.data.user)
         navigate('/')

@@ -5,7 +5,7 @@ const SECRET = process.env.JWT_SECRET;
 
 module.exports = {
     getMovies: (req,res)=>{
-        Movie.find({}).populate('createdBy','username email')
+        Movie.find({})
         .then((movies) =>{
             res.json(movies)
         }).catch(err =>{
@@ -13,8 +13,16 @@ module.exports = {
         });
     },  
     createMovie: (req,res)=>{
-        const user = jwt.verify(req.cookies.UserToken, SECRET)
-        Movie.create({...req.body,createdBy:user._id})
+        console.log("Inside Create movie Function")
+        // const user = jwt.verify(req.cookies.userToken,SECRET)
+        // consol.log("JWT",jwt)
+        // console.log("USER =>",user)
+        console.log("req.body",req.body)
+        const movie= new Movie (req.body)
+        const decodedJwt = jwt.decode(req.cookies.UserToken, { complete: true });
+        console.log("DecodedJWT",decodedJwt)
+        movie.createdBy = decodedJwt.payload._id
+        Movie.create(movie)
         .then(newMovies=>{
             res.status(200).json(newMovies)
         }).catch(err =>{

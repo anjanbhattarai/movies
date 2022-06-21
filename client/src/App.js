@@ -12,7 +12,6 @@ import {useState} from 'react';
 function App() {
 const [isLoggedIn, setIsLoggedIn] = useState(false);
 const [userMeta, setUserMeta] = useState({})
-  console.log(userMeta)
   return (
     <BrowserRouter> 
     <div className="App">

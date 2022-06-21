@@ -28,7 +28,7 @@ const handleChange= (e)=>{
 
 const handleSubmit= (e)=>{
     e.preventDefault()
-    axios.post('http://localhost:8000/register',user)
+    axios.post('http://localhost:8000/register',user, {withCredentials: true})
     .then(res =>{
         setUserMeta(res.data.user)
         setIsLoggedIn(true)

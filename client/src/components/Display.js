@@ -35,7 +35,6 @@ function Display(props) {
             </Stack>
         )}
     const displayLoggedInContent= ()=>{
-        console.log(user)
         return (
         <div>
         <span  className='logoutButton'>

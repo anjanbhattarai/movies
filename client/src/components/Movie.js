@@ -16,7 +16,7 @@ const {id} = useParams();
 const navigate = useNavigate();
 
 useEffect (()=>{
-  axios.get(`http://localhost:8000/api/movies/${id}`)
+  axios.get(`http://localhost:8000/api/movies/${id}`,{withCredentials: true})
   .then(res =>{
     setMovie(res.data);
   }).catch(err =>{
@@ -25,7 +25,7 @@ useEffect (()=>{
 },[])
 
 const handleDelete = ()=>{
-  axios.delete(`http://localhost:8000/api/movies/${movie._id}`)
+  axios.delete(`http://localhost:8000/api/movies/${movie._id}`,{withCredentials: true})
   .then(res =>{
     navigate('/')
   }).catch(err =>{

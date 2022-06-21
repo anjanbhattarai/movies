@@ -35,6 +35,7 @@ const register = async (req,res)=>{
 
 const login = async(req,res)=>{
     const userDoc = await User.findOne({email: req.body.email});
+    console.log("inside login",userDoc)
     if(!userDoc){
         res.status(400).json({message: 'Invalid Login'})
     } else{
@@ -48,11 +49,11 @@ const login = async(req,res)=>{
                     _id: userDoc._id,
                     email: userDoc.email,
                     username: userDoc.username,
-                }, SECRET,
+                }, SECRET
                 ); 
-                console.log("TOKEN", userToken);
+                console.log("TOKEN-->", userToken);
         
-                res.cookie('UserToken',userToken, {
+                res.cookie('UserToken',userToken,SECRET, {
                     expires: new Date(Date.now() + 1000000)
                 })
                 .json({successMessage:"Login successful",
@@ -61,7 +62,7 @@ const login = async(req,res)=>{
                     email: userDoc.email,
                     username: userDoc.username,
                 },
-            });
+            }); console.log('Login complete')
             }
         } catch(err){
             console.log("login Error",err)

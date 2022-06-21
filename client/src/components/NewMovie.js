@@ -26,7 +26,7 @@ const navigate= useNavigate();
 const submitHandler = (e) =>{
   e.preventDefault();
   axios.post('http://localhost:8000/api/movies',
-  {title,genre,boxArt,rating,actors,isKidFriendly,releaseYear})
+  {title,genre,boxArt,rating,actors,isKidFriendly,releaseYear},{withCredentials: true})
     .then(res =>{
       navigate('/')
     }).catch(err =>{
@@ -45,8 +45,7 @@ const submitHandler = (e) =>{
       sx={{
         width: 500,
         maxWidth: '80%',
-      }}
-    >
+      }}>
       <h2 className="newMovie">Add a New Movie </h2>
       <br/>
       <TextField fullWidth label="Title" id="Title" value={title} onChange={(e)=> setTitle(e.target.value)}/>
